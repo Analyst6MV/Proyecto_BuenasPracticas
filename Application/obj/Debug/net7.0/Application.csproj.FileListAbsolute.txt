@@ -1,0 +1,15 @@
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Application\bin\Debug\net7.0\Application.deps.json
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Application\bin\Debug\net7.0\Application.dll
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Application\bin\Debug\net7.0\Application.pdb
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Application\bin\Debug\net7.0\Domain.dll
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Application\bin\Debug\net7.0\Domain.pdb
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Application\obj\Debug\net7.0\Application.csproj.AssemblyReference.cache
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Application\obj\Debug\net7.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Application\obj\Debug\net7.0\Application.AssemblyInfoInputs.cache
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Application\obj\Debug\net7.0\Application.AssemblyInfo.cs
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Application\obj\Debug\net7.0\Application.csproj.CoreCompileInputs.cache
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Application\obj\Debug\net7.0\Application.csproj.CopyComplete
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Application\obj\Debug\net7.0\Application.dll
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Application\obj\Debug\net7.0\refint\Application.dll
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Application\obj\Debug\net7.0\Application.pdb
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Application\obj\Debug\net7.0\ref\Application.dll

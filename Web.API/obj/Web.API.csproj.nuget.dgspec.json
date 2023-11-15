@@ -1,0 +1,283 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Web.API\\Web.API.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Application\\Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Application\\Application.csproj",
+        "projectName": "Application",
+        "projectPath": "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\Analista6\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Analista6\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Domain\\Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.8.0, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Domain\\Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Domain\\Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Analista6\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Analista6\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.1.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Infrastructure\\Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Infrastructure\\Infrastructure.csproj",
+        "projectName": "Infrastructure",
+        "projectPath": "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Analista6\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Analista6\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Application\\Application.csproj"
+              },
+              "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Domain\\Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Web.API\\Web.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Web.API\\Web.API.csproj",
+        "projectName": "Web.API",
+        "projectPath": "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Web.API\\Web.API.csproj",
+        "packagesPath": "C:\\Users\\Analista6\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Web.API\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Analista6\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Application\\Application.csproj"
+              },
+              "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Infrastructure\\Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
