@@ -5,18 +5,18 @@ namespace Domain.Customer
 {
     public sealed class Customer : AggregateRoot
     {
-        public Customer(CustomerId id, string primnerNombre, string segundoNombre, string primerApellido, string segundoApellido, string email, string password, object[] idicativoCelular, NumeroCelular numeroCelular, object[] idicativoWhatsapp, NumeroCelular numeroWhatsapp, object[] tipoDocumento, string numeroDocumento, Direccion direccion, string tokenAcceso, DateTime fechaCreacionTokenAcceso, string codigoValidacion, DateTime fechaCreacionCodigoValidacion, bool activo)
+        public Customer(int id, string primerNombre, string segundoNombre, string primerApellido, string segundoApellido, string email, string password, List<IndicativoNumeroCelular_Whatsapp> indicativoCelular, NumeroCelular numeroCelular, List<IndicativoNumeroCelular_Whatsapp> indicativoWhatsapp, NumeroCelular numeroWhatsapp,List<TipoDocumento> tipoDocumento, string numeroDocumento, Direccion direccion, string? tokenAcceso, DateTime? fechaCreacionTokenAcceso, string? codigoValidacion, DateTime? fechaCreacionCodigoValidacion, bool estadoUsuario, bool sesionActiva)
         {
-            this.id = id;
-            PrimnerNombre = primnerNombre;
+            Id = id;
+            PrimerNombre = primerNombre;
             SegundoNombre = segundoNombre;
             PrimerApellido = primerApellido;
             SegundoApellido = segundoApellido;
             Email = email;
             Password = password;
-            IdicativoCelular = idicativoCelular;
+            IndicativoCelular = indicativoCelular;
             NumeroCelular = numeroCelular;
-            IdicativoWhatsapp = idicativoWhatsapp;
+            IndicativoWhatsapp = indicativoWhatsapp;
             NumeroWhatsapp = numeroWhatsapp;
             TipoDocumento = tipoDocumento;
             NumeroDocumento = numeroDocumento;
@@ -25,7 +25,8 @@ namespace Domain.Customer
             FechaCreacionTokenAcceso = fechaCreacionTokenAcceso;
             CodigoValidacion = codigoValidacion;
             FechaCreacionCodigoValidacion = fechaCreacionCodigoValidacion;
-            Activo = activo;
+            EstadoUsuario = estadoUsuario;
+            SesionActiva = sesionActiva;
         }
 
         private Customer()
@@ -34,37 +35,39 @@ namespace Domain.Customer
         }
 
 
-        public CustomerId id { get; private set; }
-        public string PrimnerNombre { get; private set; } = string.Empty;
+        public int Id { get; private set; }
+        public string PrimerNombre { get; private set; } = string.Empty;
         public string SegundoNombre { get; private set; } = string.Empty;
 
         public string PrimerApellido { get; private set; } = string.Empty;
 
         public string SegundoApellido { get; private set; } = string.Empty;
 
-        public string NombreCompleto => $"{PrimnerNombre} {SegundoNombre} {PrimerApellido} {SegundoApellido}";
+        public string NombreCompleto => $"{PrimerNombre} {SegundoNombre} {PrimerApellido} {SegundoApellido}";
 
         public string Email { get; private set; } = string.Empty;
         public string Password { get; private set; } = string.Empty;
 
-        public object[] IdicativoCelular { get; private set; } = Array.Empty<object>();
+        public List<IndicativoNumeroCelular_Whatsapp> IndicativoCelular { get; private set; }
 
         public NumeroCelular NumeroCelular { get; private set; }
 
-        public object[] IdicativoWhatsapp { get; private set; } = Array.Empty<object>();
+        public List<IndicativoNumeroCelular_Whatsapp> IndicativoWhatsapp { get; private set; }
 
         public NumeroCelular NumeroWhatsapp { get; private set; }
 
-        public object[] TipoDocumento { get; private set; } = Array.Empty<object>();
+        public List<TipoDocumento> TipoDocumento { get; private set; } 
         public string NumeroDocumento { get; private set; } = string.Empty;
 
         public Direccion Direccion { get; private set; }
 
-        public string TokenAcceso { get; private set; } = string.Empty;
-        public DateTime FechaCreacionTokenAcceso { get; private set; }
-        public string CodigoValidacion { get; private set; } = string.Empty;
-        public DateTime FechaCreacionCodigoValidacion { get; private set; }
-        public bool Activo {  get; private set; }
+        public string? TokenAcceso { get; private set; } = string.Empty;
+        public DateTime? FechaCreacionTokenAcceso { get; private set; } = null;
+        public string? CodigoValidacion { get; private set; } = string.Empty;
+        public DateTime? FechaCreacionCodigoValidacion { get; private set; } = null;
+        public bool EstadoUsuario {  get; private set; }
+        public bool SesionActiva {  get; private set; }
+   
 
 
 

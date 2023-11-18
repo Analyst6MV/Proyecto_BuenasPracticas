@@ -1,21 +1,22 @@
 ﻿using Domain.ValueObject;
+using ErrorOr;
 using MediatR;
 
 
 namespace Application.Custumer.Register
 {
     public record RegisterCustomerCommand(
-         string primnerNombre,
+         string primerNombre,
          string segundoNombre,
          string primerApellido,
          string segundoApellido,
          string email, 
          string password,
-         object[] idicativoCelular,
+         List<IndicativoNumeroCelular_Whatsapp> indicativoCelular,
          string numeroCelular, 
-         object[] idicativoWhatsapp,
+         List<IndicativoNumeroCelular_Whatsapp> indicativoWhatsapp,
          string numeroWhatsapp, 
-         object[] tipoDocumento, 
+         List<TipoDocumento> tipoDocumento, 
          string numeroDocumento,
          int idTipoVia,
          string tipoVia, 
@@ -28,10 +29,6 @@ namespace Application.Custumer.Register
          string codigoPostal, 
          int idPais, 
          int idDepartamento,
-         int idCiudad,
-         string tokenAcceso, 
-         DateTime fechaCreacionTokenAcceso, 
-         string codigoValidacion, 
-         DateTime fechaCreacionCodigoValidacion
-        ) : IRequest<Unit>;
+         int idCiudad
+        ) : IRequest<ErrorOr<Unit>>;
 }

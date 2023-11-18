@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "/i0HpXxXsAPOsitY/ppgRWX87TBp/cdDhY/mFdxjAVu48yjI5Lei5D7qnYmOlBT/QdzuOPelIoZmwSruDzEnoQ==",
+  "dgSpecHash": "/6ko/mJlaWspIsGCbUmU4AG4i83gPjCVqOs0N9epkXfUXVu+t+tUtWv9jk2iu9EOS+jD/lPntBpKzEzPAip1pQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Analista6\\Desktop\\Proyectos_PruebaYAprendizaje\\Proyecto_BuenasPracticas\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Analista6\\.nuget\\packages\\erroror\\1.3.0\\erroror.1.3.0.nupkg.sha512",
     "C:\\Users\\Analista6\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
     "C:\\Users\\Analista6\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\Analista6\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"

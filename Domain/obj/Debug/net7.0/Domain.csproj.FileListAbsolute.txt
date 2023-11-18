@@ -10,3 +10,4 @@ C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas
 C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Domain\obj\Debug\net7.0\Domain.pdb
 C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Domain\obj\Debug\net7.0\ref\Domain.dll
 C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Domain\obj\Debug\net7.0\Domain.csproj.AssemblyReference.cache
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Domain\obj\Debug\net7.0\Domain.sourcelink.json

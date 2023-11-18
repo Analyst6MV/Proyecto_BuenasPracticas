@@ -4,7 +4,7 @@ namespace Domain.ValueObject
 {
     public partial record NumeroCelular
     {
-        private const int DefaultLenght = 10;
+        private const int DefaultLenght = 20;
 
         private const string Pattern = @"^\d{10}$";
 
@@ -13,8 +13,7 @@ namespace Domain.ValueObject
 
         public static NumeroCelular?  Create(string value)
         {
-
-            if (string.IsNullOrEmpty(value) || !NumeroCelularRegex().IsMatch(value) || value.Length !=  DefaultLenght)
+            if (string.IsNullOrEmpty(value) || !NumeroCelularRegex().IsMatch(value) || value.Length >  DefaultLenght)
             {
                 return null;
             }
