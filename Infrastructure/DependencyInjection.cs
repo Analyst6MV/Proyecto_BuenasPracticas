@@ -1,8 +1,5 @@
-﻿
-
-using Application.Data;
+﻿using Application.Data;
 using Domain.Customer;
-using Domain.Primitive;
 using Infrastructure.Persistence;
 using Infrastructure.Persistence.Repositories;
 using Microsoft.Extensions.Configuration;
@@ -23,26 +20,18 @@ namespace Infrastructure
         private static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration)
         {
 
-            //services.AddDbContext<ApplicationDbContext>(options => options.UseMongoDB(configuration.GetConnectionString("MongoDB")));
-            //services.AddScoped<IApplicationDBContext>(sp =>
-            //     sp.GetRequiredService<ApplicationDbContext>());
-
-            //services.AddScoped<IUnitOfWork>(sp =>
-            //        sp.GetRequiredService<ApplicationDbContext>());
-            //return services;
 
 
             string mongoConnectionString = configuration.GetConnectionString("MongoDB");
 
             // Asegúrate de ajustar las opciones de MongoDB según tus necesidades
             var mongoClient = new MongoClient(mongoConnectionString);
-            var mongoDatabase = mongoClient.GetDatabase("TiendaAPI");
+            var mongoDatabase = mongoClient.GetDatabase(configuration.GetConnectionString("DB"));
 
             services.AddSingleton<IMongoClient>(_ => mongoClient);
             services.AddScoped<IMongoDatabase>(_ => mongoDatabase);
 
             services.AddScoped<IApplicationDBContext, ApplicationDbContext>();
-            services.AddScoped<IUnitOfWork, ApplicationDbContext>();
             services.AddScoped<IIdCustomer, IdCustomer>();
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             return services;

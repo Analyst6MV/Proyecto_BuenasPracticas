@@ -56,6 +56,7 @@ namespace Domain.ValueObject
             {
                 return null;
             }
+            var direccionCompleta = $" {tipoVia} {numeroVia}  {apendiceVia} {numeroCruce} {apendiceCruce} {metrosEsquina} " + descripcionAdicional == string.Empty ? $"{descripcionAdicional}" : "";
 
             return new Direccion(idTipoVia, tipoVia, numeroVia, apendiceVia, numeroCruce, apendiceCruce, metrosEsquina, descripcionAdicional, codigoPostal, idPais, idDepartamento, idCiudad);
         }

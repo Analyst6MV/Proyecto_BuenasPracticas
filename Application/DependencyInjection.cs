@@ -1,4 +1,5 @@
 ﻿
+using Application.Behaver;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,6 +16,10 @@ namespace Application
                 config.RegisterServicesFromAssemblyContaining<ApplicationAssemblyReference>();
             });
             services.AddValidatorsFromAssemblyContaining<ApplicationAssemblyReference>();
+            services.AddScoped(
+                    typeof(IPipelineBehavior<,>),
+                    typeof(ValidationBehavior<,>)
+                );
 
 
             return services;

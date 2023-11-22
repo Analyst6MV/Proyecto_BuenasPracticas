@@ -7,7 +7,7 @@ using MongoDB.Driver;
 
 namespace Infrastructure.Persistence
 {
-    public class ApplicationDbContext : IApplicationDBContext, IUnitOfWork
+    public class ApplicationDbContext : IApplicationDBContext
     {
         private readonly IPublisher _publisher;
         private readonly IMongoDatabase _database;
@@ -18,70 +18,14 @@ namespace Infrastructure.Persistence
         }
 
 
-        IMongoCollection<Customer> IApplicationDBContext.Customer { get; set; }
-        public IMongoCollection<Customer> Customer => _database.GetCollection<Customer>("Usuarios");
+        IMongoCollection<CustomerPersona> IApplicationDBContext.Customer { get; set; }
+        public IMongoCollection<CustomerPersona> Customer => _database.GetCollection<CustomerPersona>("Usuarios");
 
 
   
-        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
-        {
-            // No necesitas un método SaveChangesAsync en MongoDB, ya que es sin estado y no hay confirmación explícita
-            // Aquí puedes manejar eventos de dominio si es necesario
-            try
-            {
-                var domainEvents = Customer.AsQueryable().SelectMany(e => e.GetDomainEvent());
 
-
-
-                var result = await SaveChangesAsync(cancellationToken);
-                foreach (var domainEvent in domainEvents)
-                {
-                    await _publisher.Publish(domainEvent, cancellationToken);
-                }
-
-                // Devuelve 0 ya que MongoDB no tiene un concepto de número de cambios como en un contexto relacional
-                return result;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return 0;
-               
-            }
-        
-        }
 
     }
 
-        //public ApplicationDbContext(DbContextOptions options, IPublisher publisher) : base(options) 
-        //{
-        //    _publisher = publisher ?? throw new ArgumentNullException(nameof(publisher));
-
-        //}     
-
-        // public DbSet<Customer> Customer { get; set; }
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
-        //}
-
-        //public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
-        //{
-        //    var domainEvents = ChangeTracker.Entries<AggregateRoot>()
-        //                        .Select(e => e.Entity)
-        //                        .Where(e => e.GetDomainEvent().Any())
-        //                        .SelectMany(e => e.GetDomainEvent());
-
-        //    var result = await base.SaveChangesAsync(cancellationToken);
-        //    foreach (var DomainEvent in domainEvents)
-        //    {
-        //        await _publisher.Publish(DomainEvent,cancellationToken);
-
-        //    }
-
-        //    return result;
-        //}
-
-
-   // }
+      
 }

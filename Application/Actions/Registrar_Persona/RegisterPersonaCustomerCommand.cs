@@ -1,11 +1,9 @@
 ﻿using Domain.ValueObject;
-using ErrorOr;
-using MediatR;
 
-
-namespace Application.Custumer.Register
+namespace Application.Actions.Registrar_Persona
 {
-    public record RegisterCustomerCommand(
+    public record RegisterPersonaCustomerCommand(
+         string nombreUsuario,
          string primerNombre,
          string segundoNombre,
          string primerApellido,
@@ -19,15 +17,15 @@ namespace Application.Custumer.Register
          List<TipoDocumento> tipoDocumento, 
          string numeroDocumento,
          int idTipoVia,
-         string tipoVia, 
+         string tipoVia,
          string numeroVia,
-         string apendiceVia, 
+         string apendiceVia,
          string numeroCruce,
-         string apendiceCruce, 
-         string metrosEsquina, 
-         string descripcionAdicional, 
-         string codigoPostal, 
-         int idPais, 
+         string apendiceCruce,
+         string metrosEsquina,
+         string descripcionAdicional,
+         string codigoPostal,
+         int idPais,
          int idDepartamento,
          int idCiudad
         ) : IRequest<ErrorOr<Unit>>;

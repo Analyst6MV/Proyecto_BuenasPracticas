@@ -1,11 +1,31 @@
 using Application;
 using Infrastructure;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using Web.API;
-using Web.API.Extencions;
+using Web.API.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Configuration.AddJsonFile("appsettings.json");
+var secretkey =builder.Configuration.GetSection("JWT").GetSection("KeySecrets").ToString();
+
+var BytesKey = Encoding.UTF8.GetBytes(secretkey);
+
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(Opcion => {
+    Opcion.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = false,
+        ValidateAudience = false,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(BytesKey)
+    };
+});
 
 builder.Services.AddPresentation()
                 .AddInfrastructure(builder.Configuration)
@@ -24,7 +44,9 @@ if (app.Environment.IsDevelopment())
 app.UseExceptionHandler("/error");
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+app.UseAuthentication();
+app.UseAuthorization();  
+app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
 
 app.MapControllers();
 

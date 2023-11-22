@@ -2,6 +2,6 @@
 
 namespace Domain.Primitive;
 
-public record DomainEvent(Guid id): INotification;
+public record DomainEvent(int id): INotification;
         
 

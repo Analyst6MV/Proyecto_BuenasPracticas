@@ -65,3 +65,11 @@ C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas
 C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Web.API\bin\Debug\net7.0\runtimes\osx\native\libmongocrypt.dylib
 C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Web.API\bin\Debug\net7.0\runtimes\win\native\mongocrypt.dll
 C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Web.API\obj\Debug\net7.0\Web.API.sourcelink.json
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Web.API\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Web.API\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Web.API\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Web.API\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Web.API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Web.API\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Web.API\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Analista6\Desktop\Proyectos_PruebaYAprendizaje\Proyecto_BuenasPracticas\Web.API\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
