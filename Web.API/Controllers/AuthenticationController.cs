@@ -3,16 +3,12 @@ using Application.Actions.Login;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Application.Actions.Registrar_Persona;
-using ErrorOr;
+using System.Security.Claims;
+using Application.Actions.ActualizarToken;
+using Application.FuncionesAdicionales;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using System.Text;
-using Application.Actions.ActualizarToken;
-using Microsoft.AspNetCore.Authorization;
-using System.Security.Principal;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Web.API.Controllers
 {
@@ -22,10 +18,13 @@ namespace Web.API.Controllers
     {
 
         private readonly ISender _mediator;
+        private readonly IConfiguration _configuration;
         
-        public AuthenticationController(ISender mediator)
+        public AuthenticationController(ISender mediator, IConfiguration configuration)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+
             
         }
 
@@ -54,39 +53,81 @@ namespace Web.API.Controllers
 
                 errors => Problem(errors)
             );
-
         }
 
         [HttpPost]
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginCustomerCommand command)
         {
+
+
+
             var Login = await _mediator.Send(command);
-            return Login.Match(customer =>  Ok(customer),
+
+            if (Login.IsError) { return Problem(Login.Errors); }
+            var JwtPrimerLogin = _configuration["JWT:KeySecrets"]; // _configuration.GetSection("JWT").GetSection("KeySecrets").Value;
+            var audienc = _configuration.GetSection("JWT").GetSection("ValidAudiences").Value;
+            var Issuer = _configuration.GetSection("JWT").GetSection("ValidIssuer").Value;
+            Fecha fechaActual = new Fecha();
+            var fehca = fechaActual.FechaActual();
+            var clainsPrimerLogin = new[]
+            {
+
+                    new Claim(JwtRegisteredClaimNames.Iat,fehca.DateTime.ToString()),
+                    new Claim("id",Login.Value.Id.ToString())
+
+            };
+
+            var KeyPrimerLogin = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtPrimerLogin));
+
+            var singInPrimerLogin = new SigningCredentials(KeyPrimerLogin, SecurityAlgorithms.HmacSha256);
+
+            var TokenPrimerLogin = new JwtSecurityToken(claims: clainsPrimerLogin, expires: fehca.AddHours(1).DateTime, signingCredentials: singInPrimerLogin);
 
 
-                errors => Problem(errors)
-            );
+
+            string TokenAcceso = new JwtSecurityTokenHandler().WriteToken(TokenPrimerLogin);
+            await _mediator.Send(new ActualizarTokenAccesoCommand(Login.Value.Id, TokenAcceso, fehca.DateTime));
+
+            return Ok(new {
+            
+                success = true,
+                message = "Login Ok",
+                data = new
+                {
+                     
+                  id=  Login.Value.Id,
+                  nombreUsuario= Login.Value.NombreUsuario,
+                  tipoUsuario= Login.Value.NombreUsuario,
+                  tokenAcceso= TokenAcceso,
+                  fechaCreacionTokenAcceso= fehca.DateTime
+
+                }
+            
+            });
+
         }
         [HttpPost]
         //[Authorize]
         [Route("login-token")]
-        public async Task<IActionResult> LoginXToken()
+        public async Task<IActionResult> LoginXToken() //[FromQuery] string id)
         {
-            ClaimsIdentity Token = HttpContext.User.Identity as ClaimsIdentity;
-            if (Token.Claims.Count() == 0) 
+
+            ClaimsIdentity Token = (ClaimsIdentity)HttpContext.User.Identity;
+
+             if (Token.Claims.Count() == 0) 
             {
-                return Unauthorized();
-            
+                return Unauthorized("El token no es valido");
             }
 
 
             int Id = int.Parse(Token.Claims.FirstOrDefault(s => s.Type == "id").Value);
+            return Ok();
 
-            ActualizarTokenAccesoCommand command = new ActualizarTokenAccesoCommand(Id);
+            //ActualizarTokenAccesoCommand command = new ActualizarTokenAccesoCommand(Id);
 
-            var actualizarToken = await _mediator.Send(command);
-            return actualizarToken.Match(customer => Ok(customer),errors=>Problem(errors));
+            //var actualizarToken = await _mediator.Send(command);
+            //return actualizarToken.Match(customer => Ok(customer),errors=>Problem(errors));
 
         }
 

@@ -1,7 +1,9 @@
 using Application;
 using Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using MongoDB.Driver;
 using System.Text;
 using Web.API;
 using Web.API.Middlewares;
@@ -10,26 +12,32 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Configuration.AddJsonFile("appsettings.json");
-var secretkey =builder.Configuration.GetSection("JWT").GetSection("KeySecrets").ToString();
+//builder.Configuration.AddJsonFile("appsettings.json");
+//var secretkey =builder.Configuration.GetSection("JWT").GetSection("KeySecrets").Value;
+//var Issuer = builder.Configuration.GetSection("JWT").GetSection("ValidIssuer").Value;
 
-var BytesKey = Encoding.UTF8.GetBytes(secretkey);
 
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(Opcion => {
+builder.Services.AddPresentation()
+                .AddInfrastructure(builder.Configuration)
+                .AddApplication();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
+    Opcion =>
+{
     Opcion.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = false,
         ValidateAudience = false,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(BytesKey)
+        //ValidIssuer = Issuer,
+        // ValidAudience = "https://localhost:44384",
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:KeySecrets"]))
     };
-});
+}
+);
 
-builder.Services.AddPresentation()
-                .AddInfrastructure(builder.Configuration)
-                .AddApplication();
 
 var app = builder.Build();
 
@@ -40,12 +48,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
     //app.ApplyMigrations();
 }
+app.UseAuthentication();
+
+app.UseAuthorization();
 
 app.UseExceptionHandler("/error");
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
-app.UseAuthentication();
-app.UseAuthorization();  
+
+
 app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
 
 app.MapControllers();

@@ -26,7 +26,7 @@ namespace Web.API.Middlewares
                 {
                     Status = (int)HttpStatusCode.InternalServerError,
                     Type = "Server Error",
-                    Title = "Server Error",
+                    Title = "Server Error", 
                     Detail = "An internal server has ocurred."
                 };
 

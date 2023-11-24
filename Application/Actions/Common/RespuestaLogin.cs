@@ -6,9 +6,8 @@ namespace Application.Actions.Common
     (
         int Id,
         string NombreUsuario,
-        string TipoUsuario,
-        string TokenAcceso,
-        DateTime FechaCreacionTokenAcceso
+        string TipoUsuario
+
 
     );
 }

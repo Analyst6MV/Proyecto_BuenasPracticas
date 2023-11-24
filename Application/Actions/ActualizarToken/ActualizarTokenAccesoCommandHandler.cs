@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Application.Actions.ActualizarToken
 {
-    internal sealed class ActualizarTokenAccesoCommandHandler : IRequestHandler<ActualizarTokenAccesoCommand, ErrorOr<RespuestaLogin>>
+    internal sealed class ActualizarTokenAccesoCommandHandler : IRequestHandler<ActualizarTokenAccesoCommand, ErrorOr<RespuestaTokenActualizado>>
     {
         private readonly ICustomerRepository _customerRepository;
         private readonly IConfiguration _configuration;
@@ -26,42 +26,13 @@ namespace Application.Actions.ActualizarToken
             _configuration = configuration;
         }
 
-        public async  Task<ErrorOr<RespuestaLogin>> Handle(ActualizarTokenAccesoCommand request, CancellationToken cancellationToken)
+        public async  Task<ErrorOr<RespuestaTokenActualizado>> Handle(ActualizarTokenAccesoCommand request, CancellationToken cancellationToken)
         {
+            await _customerRepository.RegistarToken(request.id, request.Token, request.Fecha);
 
-            if (await _customerRepository.ActualizarToken(request.id) is not DataLogin customer)
-            {
-                return Error.Failure("Actualizar.NotFound", "Se presento un error al momento de actualizar el token, por favor vuelve a intentar lo");
-            }
-
-
-            var JwtPrimerLogin = _configuration.GetSection("JWT").GetSection("KeySecrets").ToString();
-
-
-            Fecha fechaActual = new Fecha();
-            var fehca = fechaActual.FechaActual();
-            var clainsPrimerLogin = new[]
-            {
-
-                    new Claim(JwtRegisteredClaimNames.Iat,fehca.ToString()),
-                    new Claim("id",request.id.ToString())
-
-            };
-
-            var KeyPrimerLogin = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtPrimerLogin));
-            var singInPrimerLogin = new SigningCredentials(KeyPrimerLogin, SecurityAlgorithms.HmacSha256);
-
-            var TokenPrimerLogin = new JwtSecurityToken(claims: clainsPrimerLogin, expires: fehca.AddHours(1).DateTime, signingCredentials: singInPrimerLogin);
-            string TokenAcceso = new JwtSecurityTokenHandler().WriteToken(TokenPrimerLogin);
-
-            await _customerRepository.RegistarToken(request.id, TokenAcceso, fehca.DateTime);
-
-            return new RespuestaLogin(
-                customer._id,
-                customer.NombreUsuario,
-                customer.TipoUsuario,
-                TokenAcceso,
-                fehca.DateTime);
+            return new RespuestaTokenActualizado(
+                 request.Token, 
+                 request.Fecha);
         }
     }
 }
